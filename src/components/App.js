@@ -8,7 +8,12 @@ const App = () => {
 
   const key = (e) => {
     if (e.key === "Enter") {
-      const inputValue = Math.floor(parseInt(e.target.value)) || 0;
+      let inputValue;
+      if (e.target.value === NaN) {
+        inputValue = 0;
+      } else {
+        inputValue = Math.floor(parseInt(e.target.value)) || 0;
+      }
 
       // Clear existing timer
       if (timerId) {
